@@ -1,0 +1,7 @@
+Text(
+  modifier = Modifier
+    .combinedClickable(
+      onLongClick = {} ,
+      onClick = {}
+    )
+)
