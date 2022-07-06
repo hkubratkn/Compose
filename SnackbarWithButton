@@ -1,0 +1,29 @@
+
+@Composable
+fun Screen(){
+    Column{
+        val (snackbarVisibleState, setSnackbarState) = remember {mutableStateOf(false)}
+
+        Button(
+            onClick = { setSnackbarState(!snackbarVisibleState) }
+        ){
+            if(snackbarVisibleState) {
+                Text("hide")
+            } else {
+                Text(text = "show snackbar")
+            }
+        }
+
+        if(snackbarVisibleState) {
+            Snackbar(
+                action = {
+                    Button(onClick = {}){Text("MyAction")}
+                },
+                modifier = Modifier.padding(8.dp)
+            ) {
+                Text("snackbar")
+            }
+        }
+    }
+
+}
