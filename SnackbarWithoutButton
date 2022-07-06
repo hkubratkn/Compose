@@ -1,1 +1,21 @@
-
+@Composable
+fun Screen(){
+    val scaffoldState = rememberScaffoldState()
+    val snackbarCoroutineScope = rememberCoroutineScope()
+    
+    Scaffold(scaffoldState = scaffoldState){
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            Button(
+                onClick = {
+                    snackbarCoroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar("snackbar")
+                    }
+                }
+            ){ Text("snackbar")}
+        }
+    }
+}
